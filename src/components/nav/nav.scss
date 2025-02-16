@@ -1,19 +1,24 @@
 nav {
-  padding: 2em;
+  width: 100%;
   display: flex;
   flex-flow: row;
   align-items: center;
-  justify-content: center;
-  gap: 2em;
+  justify-content: space-between;
+  padding: 1em;
+  gap: 1em;
 
   a {
-    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
     font-weight: 700;
     text-align: center;
     text-decoration: none;
     border: 1px solid #555555;
     padding: .2em;
-    width: 200px;
+    width: 150px;
+    min-height: 50px;
     background: #36395a;
     color: #f2f2f2;
   }

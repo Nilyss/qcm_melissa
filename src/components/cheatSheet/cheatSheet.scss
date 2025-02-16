@@ -6,8 +6,6 @@ main {
 
 .cheat-sheet {
   width: 100%;
-  max-width: 800px;
-  margin: auto;
   border-collapse: collapse;
   font-family: Arial, sans-serif;
 
@@ -26,7 +24,7 @@ main {
     background-color: #f2f2f2;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 425px) {
     display: block;
     overflow-x: auto;
     white-space: nowrap;

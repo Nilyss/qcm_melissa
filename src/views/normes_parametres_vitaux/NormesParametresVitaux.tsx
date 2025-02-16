@@ -24,13 +24,15 @@ export default function NormesParametresVitaux(): ReactElement {
     const userAnswers = selectedAnswers.sort();
 
     if (
-        correctAnswers.length === userAnswers.length &&
-        correctAnswers.every((val, index) => val === userAnswers[index])
+      correctAnswers.length === userAnswers.length &&
+      correctAnswers.every((val, index) => val === userAnswers[index])
     ) {
       setFeedback("Correct !");
       setScore(score + 1);
     } else {
-      setFeedback(`Incorrect. Les bonnes réponses étaient : ${correctAnswers.join(", ")}`);
+      setFeedback(
+        `Incorrect. Les bonnes réponses étaient : ${correctAnswers.join(", ")}`,
+      );
     }
     setQuestionCount(questionCount + 1);
   };
@@ -52,49 +54,54 @@ export default function NormesParametresVitaux(): ReactElement {
   };
 
   return (
-      <main>
-        <div className="qcm-container">
-          <h2 className="qcm-title">QCM - Normes Paramètres Vitaux</h2>
-          {questionCount < 20 ? (
-              <>
-                <p className="qcm-question">{currentQuestion.question}</p>
-                <div className="options">
-                  {currentQuestion.options.map((option, index) => (
-                      <button
-                          key={index}
-                          className={`option-button ${selectedAnswers.includes(option) ? "selected" : ""}`}
-                          onClick={() => handleAnswer(option)}
-                          disabled={!!feedback}
-                      >
-                        {option}
-                      </button>
-                  ))}
-                </div>
-                {!feedback && (
-                    <button className="validate-button next-button" onClick={validateAnswer}>
-                      Valider
-                    </button>
-                )}
-                {feedback && (
-                    <p className={`feedback ${feedback.startsWith("Correct") ? "correct" : "incorrect"}`}>
-                      {feedback}
-                    </p>
-                )}
-                {feedback && (
-                    <button className="next-button" onClick={nextQuestion}>
-                      Suivant
-                    </button>
-                )}
-              </>
-          ) : (
-              <div className="qcm-results">
-                <h3 className="final-score">Votre score final : {score} / 20</h3>
-                <button className="restart-button" onClick={restartQuiz}>
-                  Recommencer
+    <main>
+      <div className="qcm-container">
+        <h2 className="qcm-title">QCM - Normes Paramètres Vitaux</h2>
+        {questionCount < 20 ? (
+          <>
+            <p className="qcm-question">{currentQuestion.question}</p>
+            <div className="options">
+              {currentQuestion.options.map((option, index) => (
+                <button
+                  key={index}
+                  className={`option-button ${selectedAnswers.includes(option) ? "selected" : ""}`}
+                  onClick={() => handleAnswer(option)}
+                  disabled={!!feedback}
+                >
+                  {option}
                 </button>
-              </div>
-          )}
-        </div>
-      </main>
+              ))}
+            </div>
+            {!feedback && (
+              <button
+                className="validate-button next-button"
+                onClick={validateAnswer}
+              >
+                Valider
+              </button>
+            )}
+            {feedback && (
+              <p
+                className={`feedback ${feedback.startsWith("Correct") ? "correct" : "incorrect"}`}
+              >
+                {feedback}
+              </p>
+            )}
+            {feedback && (
+              <button className="next-button" onClick={nextQuestion}>
+                Suivant
+              </button>
+            )}
+          </>
+        ) : (
+          <div className="qcm-results">
+            <h3 className="final-score">Votre score final : {score} / 20</h3>
+            <button className="restart-button" onClick={restartQuiz}>
+              Recommencer
+            </button>
+          </div>
+        )}
+      </div>
+    </main>
   );
 }

@@ -1,3 +1,5 @@
+import './utils/styles/global.scss'
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import {datas} from './utils/scripts/generateQuestions.ts'
