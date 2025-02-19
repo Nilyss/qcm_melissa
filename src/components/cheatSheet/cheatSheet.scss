@@ -1,6 +1,7 @@
 @use '../../utils/styles/mixins' as mixins;
 
 main {
+  gap: 4em;
   @include mixins.main;
 }
 

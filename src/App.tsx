@@ -1,11 +1,12 @@
-import './utils/styles/global.scss'
+import "./utils/styles/global.scss";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import {datas} from './utils/scripts/generateQuestions.ts'
+import { datas } from "./utils/scripts/generateQuestions.ts";
+import { pressionArterielleDatas } from "./utils/datas/pressionArterielle.ts";
 
 // components
-import Nav from './components/nav/Nav.tsx'
+import Nav from "./components/nav/Nav.tsx";
 
 // views
 import NormesParametresVitaux from "./views/normes_parametres_vitaux/NormesParametresVitaux.tsx";
@@ -21,9 +22,9 @@ function App() {
         <Routes>
           <Route
             path={"/"}
-            element={<CheatSheet datas={datas} />}
+            element={<CheatSheet props={{ datas, pressionArterielleDatas }} />}
           />
-            <Route path={'/quiz'} element={<NormesParametresVitaux />} />
+          <Route path={"/quiz"} element={<NormesParametresVitaux />} />
         </Routes>
       </main>
       <footer></footer>
